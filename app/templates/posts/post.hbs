@@ -1,0 +1,16 @@
+{{page-title "Post"}}
+
+<LinkTo @route="posts.index">
+  Ir a listado
+</LinkTo>
+
+{{#if this.model}}
+  <h1>The post {{this.target.currentRoute.params.id}} is cached</h1>
+{{else}}
+  <h1>The post {{this.target.currentRoute.params.id}} is not in cache</h1>
+{{/if}}
+
+<h2>{{this.model.title}}</h2>
+<p>{{this.model.body}}</p>
+
+{{outlet}}

@@ -1,0 +1,32 @@
+{{page-title "Index"}}
+
+{{!-- Todo lo que rendericen la rutas hijas de esta ruta, se van a generar dentro de outlet. Parcedio al componente de ReactRouter. --}}
+{{outlet}}
+
+{{#if this.selectedUser}}
+  <h1>Author is: {{this.selectedUser.username}}</h1>
+  <h2>Name:{{this.selectedUser.name}} </h2>
+{{/if}}
+
+{{!-- this = controller --}}
+{{!-- this.model = route's model --}}
+<ul>
+  {{#each this.model as |post|}}
+    <li>
+      {{post.id}}
+      {{post.title}}
+      {{!-- Componente predefinido por ember, LinkTo es un component del router que arma url según el nombre de la ruta y parametros. --}}
+      <LinkTo @route="posts.post" @model={{post.id}}>
+        Ver post
+      </LinkTo>
+      {{!-- Helper FN, recibe como primer parametro una funcion, los siguientes parametros son los parametros que se pasaran a la funcion del primer paremtro --}}
+      {{!-- FN(f, a, c, b) {
+        return f(a, c, b)
+      } --}}
+
+      <button type="submit" {{on "click" (fn this.showUserInfo post)}}>
+        Mostrar información del autor
+      </button>
+    </li>
+  {{/each}}
+</ul>

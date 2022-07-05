@@ -1,7 +1,14 @@
 {{page-title "DemoEmberData"}}
 
 {{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
+{{!-- <WelcomePage /> --}}
 {{!-- Feel free to remove this! --}}
+<h1>Application Index</h1>
+
+<LinkTo @route="posts.index">
+  Ir a listado de posts
+</LinkTo>
 
 {{outlet}}
+
+<footer>Footer</footer>
